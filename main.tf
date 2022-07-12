@@ -44,10 +44,6 @@ resource "aws_instance" "myFirstInstance" {
   }
 }
 
-resource "aws_key_pair" "terraform-keys2" {
-  key_name = "terraform-keys2"
-  public_key = "terraform-keys2.pub"
-}
 
 # Create Elastic IP address
 resource "aws_eip" "myFirstInstance" {
