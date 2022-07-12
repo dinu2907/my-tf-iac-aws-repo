@@ -37,12 +37,16 @@ resource "aws_security_group" "my_security_group" {
 # Create AWS ec2 instance
 resource "aws_instance" "myFirstInstance" {
   ami           = var.ami_id
-  key_name = var.key_name
   instance_type = var.instance_type
   security_groups= [var.security_group]
   tags= {
     Name = var.tag_name
   }
+}
+
+resource "aws_key_pair" "terraform-keys2" {
+  key_name = "terraform-keys2"
+  public_key = "terraform-keys2.pub"
 }
 
 # Create Elastic IP address
