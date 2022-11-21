@@ -17,6 +17,14 @@ pipeline {
         }
         
         
+        stage('Check Terraform configurations with tflint'){
+                    steps {
+                        // To install tflint
+                        // curl -L -o /tmp/tflint.zip https://github.com/wata727/tflint/releases/download/v0.4.2/tflint_linux_amd64.zip && unzip /tmp/tflint.zip -d /usr/local/bin
+                        sh  "tflint"
+                    }
+                }
+        
         stage ("terraform Action") {
             steps {
                 echo "Terraform action is --> ${action}"
